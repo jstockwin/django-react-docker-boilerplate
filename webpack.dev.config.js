@@ -17,6 +17,8 @@ config.entry = {
 
 config.output.publicPath = 'http://' + ip + ':3000' + '/assets/bundles/'
 
+config.output.path = path.resolve('./djreact/static/bundles/dev/')
+
 config.plugins = config.plugins.concat([
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),

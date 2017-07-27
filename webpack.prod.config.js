@@ -1,9 +1,12 @@
+var path = require("path")
 var webpack = require('webpack')
 var BundleTracker = require('webpack-bundle-tracker')
 
 var config = require('./webpack.base.config.js')
 
 config.output.path = require('path').resolve('./djreact/static/bundles/prod/')
+
+config.output.path = path.resolve('./djreact/static/bundles/prod/')
 
 config.plugins = config.plugins.concat([
   new BundleTracker({filename: './webpack-stats-prod.json'}),
@@ -16,7 +19,7 @@ config.plugins = config.plugins.concat([
   }}),
 
   // keeps hashes consistent between compilations
-  new webpack.optimize.OccurenceOrderPlugin(),
+  new webpack.optimize.OccurrenceOrderPlugin(),
 
   // minifies your code
   new webpack.optimize.UglifyJsPlugin({
@@ -28,7 +31,7 @@ config.plugins = config.plugins.concat([
 
 // Add a loader for JSX files
 config.module.loaders.push(
-  { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel' }
+  { test: /\.jsx?$/, exclude: /node_modules/, loader: 'babel-loader' }
 )
 
 module.exports = config

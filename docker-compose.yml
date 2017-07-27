@@ -1,0 +1,32 @@
+prod:
+  build: .
+  dockerfile: dockerfiles/Dockerfile_prod
+  ports:
+    - "8000:8000"
+  working_dir: /usr/src/app
+  environment:
+    - NODE_ENV=production
+
+
+dev:
+  links:
+    - react-dev-server
+  build: .
+  dockerfile: dockerfiles/Dockerfile_dev
+  volumes:
+    - .:/usr/src/app
+  ports:
+    - "8000:8000"
+  working_dir: /usr/src/app
+  environment:
+    - NODE_ENV=development
+    - DJANGO_ENV=development
+
+react-dev-server:
+    build: .
+    dockerfile: dockerfiles/Dockerfile_dev_server
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    working_dir: /usr/src/app

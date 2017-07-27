@@ -1,0 +1,19 @@
+FROM node:boron
+
+RUN apt-get update && apt-get install -y python-pip
+
+RUN pip install pip --upgrade
+
+WORKDIR /usr/src/app
+
+COPY requirements.txt package.json ./
+
+RUN pip install --no-cache-dir -r requirements.txt && npm install
+
+COPY . .
+
+EXPOSE 8000
+
+RUN node_modules/.bin/webpack --config webpack.prod.config.js
+
+CMD rm -f djreact/settings.py && cp djreact/settings_prod.py djreact/settings.py && ./manage.py runserver 0.0.0.0:8000
