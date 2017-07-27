@@ -108,4 +108,4 @@ ENV/
 db.sqlite3
 
 # node
-django/node_modules/*
+node_modules/*
