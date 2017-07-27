@@ -106,3 +106,6 @@ ENV/
 
 # django
 db.sqlite3
+
+# node
+django/node_modules/*
