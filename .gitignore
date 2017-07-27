@@ -109,3 +109,5 @@ db.sqlite3
 
 # node
 node_modules/*
+webpack-stats-dev.json
+webpack-stats-prod.json

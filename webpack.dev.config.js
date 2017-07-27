@@ -20,7 +20,7 @@ config.output.publicPath = 'http://' + ip + ':3000' + '/assets/bundles/'
 config.plugins = config.plugins.concat([
   new webpack.HotModuleReplacementPlugin(),
   new webpack.NoEmitOnErrorsPlugin(),
-  new BundleTracker({filename: './webpack-stats-local.json'}),
+  new BundleTracker({filename: './webpack-stats-dev.json'}),
   new webpack.DefinePlugin({
     'process.env': {
       'NODE_ENV': JSON.stringify('development'),
