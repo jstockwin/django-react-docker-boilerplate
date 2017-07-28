@@ -2,6 +2,7 @@
 {% load render_bundle from webpack_loader %}
 
 {% block main %}
+<script>user = {name: 'Test User', type: 'normal'}</script>
 <div id="App1"></div>
 {% render_bundle 'vendors' %}
 {% render_bundle 'App1' %}
